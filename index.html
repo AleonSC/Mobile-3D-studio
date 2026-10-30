@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#16181d">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Mobile 3D Studio</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <link rel="stylesheet" href="style.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <header id="topbar">
+    <div class="brand">3D Studio</div>
+    <div class="spacer"></div>
+    <button id="btn-undo" title="Undo">↶</button>
+    <button id="btn-redo" title="Redo">↷</button>
+    <button id="btn-objects" title="Objects">☰</button>
+    <button id="btn-file" title="File">⋯</button>
+  </header>
+
+  <main id="viewport">
+    <div id="side-tools">
+      <button id="btn-snap" title="Snap to grid">Snap</button>
+      <button id="btn-focus" title="Focus selection">Focus</button>
+      <button id="btn-view" title="Cycle camera view">View</button>
+    </div>
+    <div id="status"></div>
+    <div id="toast"></div>
+  </main>
+
+  <section id="sheet" hidden>
+    <div class="sheet-head">
+      <span id="sheet-title"></span>
+      <button id="sheet-close" title="Close">✕</button>
+    </div>
+    <div id="sheet-body"></div>
+  </section>
+
+  <nav id="toolbar">
+    <button id="btn-add"><span>＋</span>Add</button>
+    <button data-mode="translate" class="mode active"><span>✥</span>Move</button>
+    <button data-mode="rotate" class="mode"><span>⟳</span>Rotate</button>
+    <button data-mode="scale" class="mode"><span>⤢</span>Scale</button>
+    <button id="btn-props"><span>✎</span>Edit</button>
+    <button id="btn-dup"><span>⧉</span>Copy</button>
+    <button id="btn-del"><span>🗑</span>Delete</button>
+  </nav>
+
+  <input type="file" id="file-input" accept=".json,application/json" hidden>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
